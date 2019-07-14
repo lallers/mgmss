@@ -1,0 +1,14 @@
+{
+	"primary": {
+		"HOME": {
+			"route": "/",
+			"component": "App",
+			"displayName": "Home"
+		},
+		"USERSETTINGS": {
+			"route": "/settings",
+			"component": "Settings",
+			"displayName": "Settings"
+		}
+	}
+}
