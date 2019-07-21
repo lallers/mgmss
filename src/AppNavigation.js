@@ -79,6 +79,11 @@ const useStyles = makeStyles(theme => ({
 	},
 	secondaryListItems: {
 		textOverflow: "ellipsis"
+	},
+	truncate: {
+		whiteSpace: "nowrap",
+		overflow: "hidden",
+		textOverflow: "ellipsis"
 	}
 }));
 
@@ -106,7 +111,11 @@ export default function AppNavigation(props) {
 					key={item.id}
 					id={`sheet-${item.id}`}
 				>
-					<ListItemText primary={item.name} />
+					<ListItemText
+						className={classes.truncate}
+						primary={item.name}
+						title={item.name}
+					/>
 				</MenuItem>
 			);
 		});

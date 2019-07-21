@@ -11,14 +11,14 @@ import Settings from "./pages/Settings";
 import DataPage from "./pages/DataPage";
 import NoMatch from "./pages/NoMatch";
 
-const token = "bm3ccwylhyiq8yfqp3ic0t0noq";
+const token = "1rhuixwrfd0z0pvqu2jejxwdv2";
 const config = {
 	headers: { Authorization: "Bearer " + token }
 };
 axios.defaults.headers.common = { Authorization: "Bearer " + token };
 
 const useStyles = makeStyles(theme => ({
-	root: { ...theme.mixins.toolbar, marginTop: "20px" }
+	root: { ...theme.mixins.toolbar }
 }));
 
 export default function App() {
@@ -36,12 +36,14 @@ export default function App() {
 			})
 			.catch(function(error) {
 				// handle error
-				console.log(error);
+				console.log("nav error", error);
+				setError(error);
 			})
 			.finally(function() {
 				// always executed
 			});
 	});
+	const [error, setError] = useState(null);
 
 	const classes = useStyles();
 	const theme = useTheme();
@@ -54,7 +56,7 @@ export default function App() {
 				<div className={classes.root} />
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route path="/view/:ssDataId" component={DataPage}  />
+					<Route excat path="/view/:ssDataId" component={DataPage} />
 					<Route exact path="/settings" component={Settings} />
 					<Route component={NoMatch} />
 				</Switch>
